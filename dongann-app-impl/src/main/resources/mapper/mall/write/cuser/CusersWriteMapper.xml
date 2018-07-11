@@ -1,0 +1,118 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.dongann.app.dao.mall.write.cuser.CusersWriteDAO">
+    <resultMap id="cusersResultMap" type="Cusers">
+        <result column="cuserId" property="cuserId"/>
+        <result column="accountId" property="accountId"/>
+        <result column="token" property="token"/>
+        <result column="jPushId" property="jPushId"/>
+        <result column="cuserName" property="cuserName"/>
+        <result column="cuserSex" property="cuserSex"/>
+        <result column="realName" property="realName"/>
+        <result column="cuserBirthday" property="cuserBirthday"/>
+        <result column="portrait" property="portrait"/>
+        <result column="cuserMobile" property="cuserMobile"/>
+        <result column="loginPassword" property="loginPassword"/>
+        <result column="payPassword" property="payPassword"/>
+        <result column="cuserWxOpenId" property="cuserWxOpenId"/>
+        <result column="cuserEmail" property="cuserEmail"/>
+        <result column="cuserPoints" property="cuserPoints"/>
+        <result column="cuserState" property="cuserState"/>
+        <result column="inviteCode" property="inviteCode"/>
+        <result column="inviteBy" property="inviteBy"/>
+        <result column="createTime" property="createTime"/>
+        <result column="updateTime" property="updateTime"/>
+    </resultMap>
+
+    <sql id="key">
+        <trim suffixOverrides=",">
+            <if test="cuserId!=null">cuserId,</if>
+            <if test="accountId!=null">accountId,</if>
+            <if test="token!=null">token,</if>
+            <if test="jPushId!=null">jPushId,</if>
+            <if test="cuserName!=null">cuserName,</if>
+            <if test="cuserSex!=null">cuserSex,</if>
+            <if test="realName!=null">realName,</if>
+            <if test="cuserBirthday!=null">cuserBirthday,</if>
+            <if test="portrait!=null">portrait,</if>
+            <if test="cuserMobile!=null">cuserMobile,</if>
+            <if test="loginPassword!=null">loginPassword,</if>
+            <if test="payPassword!=null">payPassword,</if>
+            <if test="cuserWxOpenId!=null">cuserWxOpenId,</if>
+            <if test="cuserEmail!=null">cuserEmail,</if>
+            <if test="cuserPoints!=null">cuserPoints,</if>
+            <if test="cuserState!=null">cuserState,</if>
+            <if test="inviteCode!=null">inviteCode,</if>
+            <if test="inviteBy!=null">inviteBy,</if>
+            <if test="createTime!=null">createTime,</if>
+            <if test="updateTime!=null">updateTime,</if>
+        </trim>
+    </sql>
+    <sql id="value">
+        <trim suffixOverrides=",">
+            <if test="cuserId!=null">#{cuserId},</if>
+            <if test="accountId!=null">#{accountId},</if>
+            <if test="token!=null">#{token},</if>
+            <if test="jPushId!=null">#{jPushId},</if>
+            <if test="cuserName!=null">#{cuserName},</if>
+            <if test="cuserSex!=null">#{cuserSex},</if>
+            <if test="realName!=null">#{realName},</if>
+            <if test="cuserBirthday!=null">#{cuserBirthday},</if>
+            <if test="portrait!=null">#{portrait},</if>
+            <if test="cuserMobile!=null">#{cuserMobile},</if>
+            <if test="loginPassword!=null">#{loginPassword},</if>
+            <if test="payPassword!=null">#{payPassword},</if>
+            <if test="cuserWxOpenId!=null">#{cuserWxOpenId},</if>
+            <if test="cuserEmail!=null">#{cuserEmail},</if>
+            <if test="cuserPoints!=null">#{cuserPoints},</if>
+            <if test="cuserState!=null">#{cuserState},</if>
+            <if test="inviteCode!=null">#{inviteCode},</if>
+            <if test="inviteBy!=null">#{inviteBy},</if>
+            <if test="createTime!=null">#{createTime},</if>
+            <if test="updateTime!=null">#{updateTime},</if>
+        </trim>
+    </sql>
+    <insert id="insertCusers" parameterType="Cusers" useGeneratedKeys="true" keyProperty="cuserId">
+        INSERT INTO cusers ( <include refid="key"/>) values (<include refid="value"/>)
+    </insert>
+    <update id="updateCusers" parameterType="Cusers">
+        UPDATE cusers
+        <set>
+            <if test="accountId!=null">accountId=#{accountId},</if>
+            <if test="token!=null">token=#{token},</if>
+            <if test="jPushId!=null">jPushId=#{jPushId},</if>
+            <if test="cuserName!=null">cuserName=#{cuserName},</if>
+            <if test="cuserSex!=null">cuserSex=#{cuserSex},</if>
+            <if test="realName!=null">realName=#{realName},</if>
+            <if test="cuserBirthday!=null">cuserBirthday=#{cuserBirthday},</if>
+            <if test="portrait!=null">portrait=#{portrait},</if>
+            <if test="cuserMobile!=null">cuserMobile=#{cuserMobile},</if>
+            <if test="loginPassword!=null">loginPassword=#{loginPassword},</if>
+            <if test="payPassword!=null">payPassword=#{payPassword},</if>
+            <if test="cuserWxOpenId!=null">cuserWxOpenId=#{cuserWxOpenId},</if>
+            <if test="cuserEmail!=null">cuserEmail=#{cuserEmail},</if>
+            <if test="cuserPoints!=null">cuserPoints=#{cuserPoints},</if>
+            <if test="cuserState!=null">cuserState=#{cuserState},</if>
+            <if test="inviteCode!=null">inviteCode=#{inviteCode},</if>
+            <if test="inviteBy!=null">inviteBy=#{inviteBy},</if>
+            <if test="createTime!=null">createTime=#{createTime},</if>
+            <if test="updateTime!=null">updateTime=#{updateTime},</if>
+        </set>
+        where cuserId = #{cuserId}
+    </update>
+    <update id="updateSomeFields" parameterType="Cusers">
+        UPDATE cusers
+        <set>
+            <if test="jPushId!=null">token=#{jPushId},</if>
+            <if test="cuserName!=null">cuserName=#{cuserName},</if>
+            <if test="cuserSex!=null">cuserSex=#{cuserSex},</if>
+            <if test="realName!=null">realName=#{realName},</if>
+            <if test="cuserBirthday!=null">cuserBirthday=#{cuserBirthday},</if>
+            <if test="portrait!=null">portrait=#{portrait},</if>
+            <if test="payPassword!=null">payPassword=#{payPassword},</if>
+            <if test="cuserEmail!=null">cuserEmail=#{cuserEmail},</if>
+        </set>
+        where cuserId = #{cuserId}
+    </update>
+
+</mapper>

@@ -1,0 +1,63 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.dongann.app.dao.mall.read.cuser.CusersReadDAO">
+    <resultMap id="cusersResultMap" type="Cusers">
+        <result column="cuserId" property="cuserId"/>
+        <result column="accountId" property="accountId"/>
+        <result column="token" property="token"/>
+        <result column="jPushId" property="jPushId"/>
+        <result column="cuserName" property="cuserName"/>
+        <result column="cuserSex" property="cuserSex"/>
+        <result column="realName" property="realName"/>
+        <result column="cuserBirthday" property="cuserBirthday"/>
+        <result column="portrait" property="portrait"/>
+        <result column="cuserMobile" property="cuserMobile"/>
+        <result column="loginPassword" property="loginPassword"/>
+        <result column="payPassword" property="payPassword"/>
+        <result column="cuserWxOpenId" property="cuserWxOpenId"/>
+        <result column="cuserEmail" property="cuserEmail"/>
+        <result column="cuserPoints" property="cuserPoints"/>
+        <result column="cuserState" property="cuserState"/>
+        <result column="inviteCode" property="inviteCode"/>
+        <result column="inviteBy" property="inviteBy"/>
+        <result column="createTime" property="createTime"/>
+        <result column="updateTime" property="updateTime"/>
+    </resultMap>
+    <sql id="all_column_list">`cuserId`, `accountId`, `token`,`cuserName`, `cuserSex`, `realName`, `cuserBirthday`, `portrait`, `cuserMobile`, `loginPassword`, `payPassword`, `cuserWxOpenId`, `cuserEmail`, `cuserPoints`, `cuserState`, `inviteCode`, `inviteBy`, `createTime`, `updateTime`</sql>
+    <select id="getByCuserId" parameterType="java.lang.Integer" resultMap="cusersResultMap">
+        SELECT
+          <include refid="all_column_list"/>
+        FROM cusers WHERE cuserId = #{cuserId}
+    </select>
+    <select id="getCuserInfo" parameterType="java.lang.Integer" resultMap="cusersResultMap">
+        SELECT
+          <include refid="all_column_list"/>
+        FROM cusers WHERE cuserId = #{cuserId}
+    </select>
+
+    <select id="getByCuserMobile" parameterType="java.lang.String" resultMap="cusersResultMap">
+        SELECT
+          <include refid="all_column_list"/>
+        FROM cusers WHERE cuserMobile = #{cuserMobile}
+    </select>
+
+    <select id="getCuserByInviteCode" parameterType="java.lang.String" resultMap="cusersResultMap">
+        SELECT
+          <include refid="all_column_list"/>
+        FROM cusers WHERE inviteCode = #{inviteCode}
+    </select>
+
+    <select id="getByToken" parameterType="java.lang.String" resultMap="cusersResultMap">
+        SELECT
+          <include refid="all_column_list"/>
+        FROM cusers WHERE token = #{token}
+    </select>
+
+    <select id="getCusersPageList" parameterType="java.lang.Integer" resultMap="cusersResultMap">
+        SELECT
+          <include refid="all_column_list"/>
+        FROM cusers
+        LIMIT #{offset},#{length}
+    </select>
+
+</mapper>
