@@ -85,6 +85,18 @@
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-tomcat</artifactId>
         </dependency>
+
+        <dependency>
+            <groupId>org.projectlombok</groupId>
+            <artifactId>lombok</artifactId>
+        </dependency>
+
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-configuration-processor</artifactId>
+            <optional>true</optional>
+        </dependency>
+
         <dependency>
             <groupId>org.apache.httpcomponents</groupId>
             <artifactId>httpclient</artifactId>
@@ -107,18 +119,20 @@
             <version>2.0.0.RELEASE</version>
         </dependency>
 
-        <!-- AspectJ -->
+        <!-- https://mvnrepository.com/artifact/org.aspectj/aspectjrt -->
         <dependency>
             <groupId>org.aspectj</groupId>
             <artifactId>aspectjrt</artifactId>
-            <version>1.6.11</version>
+            <version>1.8.6</version>
         </dependency>
 
+        <!-- https://mvnrepository.com/artifact/org.aspectj/aspectjweaver -->
         <dependency>
             <groupId>org.aspectj</groupId>
             <artifactId>aspectjweaver</artifactId>
-            <version>1.6.11</version>
+            <version>1.8.6</version>
         </dependency>
+
         <!-- cglib -->
         <dependency>
             <groupId>cglib</groupId>
@@ -226,27 +240,45 @@
         <profile>
             <id>test</id>
             <properties>
-                <dbdongann.url>jdbc:mysql://127.0.0.1:3306/dongann?useUnicode=true&amp;characterEncoding=UTF-8&amp;zeroDateTimeBehavior=convertToNull&amp;useSSL=true</dbdongann.url>
-                <dbdongann.username>root</dbdongann.username>
-                <dbdongann.password>000000</dbdongann.password>
+                <!-- 主库链接 -->
+                <dbmaster.url>jdbc:mysql://127.0.0.1:3306/master?useUnicode=true&amp;characterEncoding=UTF-8&amp;zeroDateTimeBehavior=convertToNull&amp;useSSL=true</dbmaster.url>
+                <dbmaster.username>root</dbmaster.username>
+                <dbmaster.password>000000</dbmaster.password>
+
+                <!-- 从库链接 -->
+                <dbslave.url>jdbc:mysql://127.0.0.1:3306/slave?useUnicode=true&amp;characterEncoding=UTF-8&amp;zeroDateTimeBehavior=convertToNull&amp;useSSL=true</dbslave.url>
+                <dbslave.username>root</dbslave.username>
+                <dbslave.password>000000</dbslave.password>
             </properties>
         </profile>
 
         <profile>
             <id>pre</id>
             <properties>
-                <dbdongann.url>jdbc:mysql://127.0.0.1:3306/dongann?useUnicode=true&amp;characterEncoding=UTF-8&amp;zeroDateTimeBehavior=convertToNull&amp;useSSL=true</dbdongann.url>
-                <dbdongann.username>root</dbdongann.username>
-                <dbdongann.password>000000</dbdongann.password>
+                <!-- 主库链接 -->
+                <dbmaster.url>jdbc:mysql://127.0.0.1:3306/master?useUnicode=true&amp;characterEncoding=UTF-8&amp;zeroDateTimeBehavior=convertToNull&amp;useSSL=true</dbmaster.url>
+                <dbmaster.username>root</dbmaster.username>
+                <dbmaster.password>000000</dbmaster.password>
+
+                <!-- 从库链接 -->
+                <dbslave.url>jdbc:mysql://127.0.0.1:3306/slave?useUnicode=true&amp;characterEncoding=UTF-8&amp;zeroDateTimeBehavior=convertToNull&amp;useSSL=true</dbslave.url>
+                <dbslave.username>root</dbslave.username>
+                <dbslave.password>000000</dbslave.password>
             </properties>
         </profile>
 
         <profile>
             <id>prd</id>
             <properties>
-                <dbdongann.url>jdbc:mysql://127.0.0.1:3306/dongann?useUnicode=true&amp;characterEncoding=UTF-8&amp;zeroDateTimeBehavior=convertToNull&amp;useSSL=true</dbdongann.url>
-                <dbdongann.username>root</dbdongann.username>
-                <dbdongann.password>000000</dbdongann.password>
+                <!-- 主库链接 -->
+                <dbmaster.url>jdbc:mysql://127.0.0.1:3306/master?useUnicode=true&amp;characterEncoding=UTF-8&amp;zeroDateTimeBehavior=convertToNull&amp;useSSL=true</dbmaster.url>
+                <dbmaster.username>root</dbmaster.username>
+                <dbmaster.password>000000</dbmaster.password>
+
+                <!-- 从库链接 -->
+                <dbslave.url>jdbc:mysql://127.0.0.1:3306/slave?useUnicode=true&amp;characterEncoding=UTF-8&amp;zeroDateTimeBehavior=convertToNull&amp;useSSL=true</dbslave.url>
+                <dbslave.username>root</dbslave.username>
+                <dbslave.password>000000</dbslave.password>
             </properties>
         </profile>
 

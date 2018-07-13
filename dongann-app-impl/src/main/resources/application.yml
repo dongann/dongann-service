@@ -10,11 +10,30 @@ spring:
           enabled: true
 
     datasource:
-        dbdongann:
-          url: '@dbdongann.url@'
-          username: '@dbdongann.username@'
-          password: '@dbdongann.password@'
-          type: com.alibaba.druid.pool.DruidDataSource
+        type: com.alibaba.druid.pool.DruidDataSource
+        dbmaster:
+          url: '@dbmaster.url@'
+          username: '@dbmaster.username@'
+          password: '@dbmaster.password@'
+          driverClassName: com.mysql.jdbc.Driver
+          filters: stat
+          maxActive: 20
+          initialSize: 1
+          maxWait: 60000
+          minIdle: 1
+          timeBetweenEvictionRunsMillis: 60000
+          minEvictableIdleTimeMillis: 300000
+          validationQuery: select 'x'
+          testWhileIdle: true
+          testOnBorrow: false
+          testOnReturn: false
+          poolPreparedStatements: true
+          maxOpenPreparedStatements: 20
+
+        dbslave:
+          url: '@dbslave.url@'
+          username: '@dbslave.username@'
+          password: '@dbslave.password@'
           driverClassName: com.mysql.jdbc.Driver
           filters: stat
           maxActive: 20

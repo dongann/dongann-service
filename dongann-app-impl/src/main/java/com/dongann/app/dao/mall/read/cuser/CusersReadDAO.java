@@ -1,12 +1,17 @@
 package com.dongann.app.dao.mall.read.cuser;
 
-import com.dongann.app.entity.cuser.Cusers;
-import org.apache.ibatis.annotations.Param;
-import org.springframework.stereotype.Repository;
-
 import java.util.List;
 
-@Repository
+import org.apache.ibatis.annotations.Param;
+import org.springframework.context.annotation.ComponentScan;
+import org.springframework.stereotype.Component;
+
+import com.dongann.app.datasource.DataSource;
+import com.dongann.app.datasource.DataSourceType;
+import com.dongann.app.entity.cuser.Cusers;
+
+@Component
+@ComponentScan
 public interface CusersReadDAO {
     /**
      * 获取用户信息
@@ -49,6 +54,7 @@ public interface CusersReadDAO {
      * @param length
      * @return
      */
+    @DataSource(DataSourceType.SLAVE)
     List<Cusers> getCusersPageList(@Param(value = "offset") Integer offset,@Param(value = "length") Integer length);
 
 }
