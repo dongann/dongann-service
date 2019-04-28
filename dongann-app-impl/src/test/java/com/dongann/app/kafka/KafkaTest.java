@@ -13,7 +13,7 @@ import javax.annotation.Resource;
 
 /**
  * @FileName: KafkaTest
- * @Author: <a href="dongchangan@rrslj.com">dongchang'an</a>.
+ * @Author: <a href="dongchangan@aliyun.com">dongchang'an</a>.
  * @CreateTime: 2019-04-23 11:15
  * @Version: v1.0
  * @description:

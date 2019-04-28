@@ -12,7 +12,7 @@ import com.dongann.app.kafka.kafkaProducer.KafkaProducer;
 
 /**
  * @FileName: KafkaConsumer
- * @Author: <a href="dongchangan@rrslj.com">dongchang'an</a>.
+ * @Author: <a href="dongchangan@aliyun.com">dongchang'an</a>.
  * @CreateTime: 2019-04-23 10:45
  * @Version: v1.0
  * @description:
