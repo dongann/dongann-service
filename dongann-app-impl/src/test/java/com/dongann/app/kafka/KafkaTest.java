@@ -43,9 +43,4 @@ public class KafkaTest extends TestBase {
                 "}");
     }
 
-    @Test
-    public void testTopicOne(){
-        kafkaConsumer.topic_one(null,"topic.one");
-    }
-
 }
